@@ -1,0 +1,153 @@
+cd dosyaya gidiyoruz
+cd .. geri gidiyoruz 
+ls listeleriyor 
+mkdir dosya aciyor 
+touch text dosyasi vb acalr
+pwd nerde oldugumuzu gosteriyor 
+cd Gitkursu\ gibi 
+rm -rf Gitkursu dosyayi sildik 
+git --version git veriosnunu gosteriyor  
+git config --global user.name "semih han akman"
+git config --global user.email "asemihhan@gmail.com" kullanici adi ve email girdik 
+add dosya ekliyoruz git add.
+git commit -m "eklendim" commit oyunlardaki saveleme mantigi gibi calsiyor ama bu islem sikinti yaratabilir bu yuzden stash vb kullaniyoruz 
+branchlerle dallandirip budaklandirabiliryoruz 
+git status o andaki dosyanin durmunu gosteriyor dosya eklendi degistirldi bunlari goseteriyor 
+git init folderimizi init dosyasnina ceviriyor git status yapinca init dosyasini gostericek ama commit olmadigini gostericek 
+git commit -m "mesaj" yapinca dosyasyi savelioyeruz bize bir hash veriyor bunlar silebilir geri donebiliyoruz 
+git log ondaki o branchteki butun commitleri gosteriyor 
+touch .gitignore Bu dosya sayesinde, proje dosyalarınızda yer alan ve sürüm kontrolüne dahil edilmemesi gereken geçici dosyalar, derleme dosyaları, günlük dosyaları veya kişisel ayarlar gibi dosyaları belirtebilirsiniz. 
+
+branch master bir branch ana branchtir bir suru branch var master en son olucak program oluyor head gitte hangi konumda oldugumuzu gosteriyor 
+commit e345ee8cdc08b412a264325be8673ef21e7274c3 (HEAD -> master)
+Author: Semih Han Akman <asemihhan@gmail.com>
+Date:   Wed Oct 30 17:52:58 2024 +0300
+
+head guncel olarak nerde oldugumzu gosteriyor 
+git branch o anda bulunan brancleri gostericektir
+
+git branch "ornek " boyle yazarsak yeni branche gidiecez baska brancler arsi gitmek istiyorsak git switch ornek boyle yaparsak branch degistirebiliriz 
+headi degistiiyorum
+
+farkli brancleri goremiyoruz 
+
+git merge commitleri birlestiriyor 
+git merge bazen hata veriyor suan aliyorum  
+$ git merge gelecek
+error: Your local changes to the following files would be overwritten by merge:
+  deneyesel.txt
+Merge with strategy ort failed.
+
+fast forwarding ayni commit merge edildiginde ikiside head gozukuyor
+ txt dosyasi degistirdik diyelim sonra biseyler yazdik sonra saveledik diyelim sonra silip kurcalayip degistirdik biseyleri sonra merge attik diyelim 
+ $ git merge arkakapak
+CONFLICT (modify/delete): ilkbolum.txt deleted in HEAD and modified in arkakapak.  Version arkakapak of ilkbolum.txt left in
+ tree.
+Automatic merge failed; fix conflicts and then commit the result.
+boyle hata aliyorum
+
+conflict cakisma anlamina geliyor 
+
+sildigimiz doysayailri yada degistirdigimiz dosyalari saveliyoruz
+conflict yapan dosyayi bir daha eklemek gerekiyor 
+
+yada ayni dosyayi degistidik conflict cikti ya master tutucan kodu bdeigistirevilirsn ama degistirip saveledeikten sonra tekrar mergeleyince cakisma duzelicek
+
+baska branchin bir dosya degistirdigimizde uyari alicaz bu uyari git restore degistirdigimiz dosyayi duzenliyor 
+
+bir daha mastere gecince commit atmayinca bilgi bu bulgi koybalmasin diye cunku commit atilmasi islem bitince atiliyor burda git stash ile sakla diyoruz 
+degisklik yapiyoruz commit etmedigimizde mastere geri dondugumuzde sikintilar bas gosteriyor bunun commitlemek istemiyorsa git stash kullaniyoruz 
+
+git stash list saklanan dosyalari gosterir
+
+git stash apply yapinca saklanan dosyalar ekleniyor
+git stash clear butun slashleri siliyor 
+
+git restore atarsak onceki haline getirecek
+
+git checkout 43548e190d7e79ac738cde593fc440ce1c3cc640
+boyle kodunu yazinca kodun commitine gidiyoruz
+
+head kopuk oluyor bunu duzeltmek icin switchleyebiliriz 
+yada commit degistirdik ve en son commit sileccegiz
+
+git reset 43548e190d7e79ac738cde593fc440ce1c3cc640
+ bunu ustundeki commitler siliniyor logta duruyor aslinda 
+ git reset hard yapinca butun commitleri siliyor 
+
+git reset --hard 962c35086c427f1939b1279382c6b21734795311
+
+git revert 962c35086c427f1939b1279382c6b21734795311
+geri aliyoruz bu komutla 
+
+git diff commitler olabilir brnachler olabilir osyalar olabilir aralarinda ki farki gosteriyor
+
+guncel dosya uzeindeki farklari gosteriyor
+
+
+git diff  53cd142a094aa9d9b1e6c8dea6d9380310b2b92a 962c35086c427f1939b1279382c6b21734795311
+
+iki commit arasinda ki farki gosteriyoruz
+
+master herhangi bir brnache mergeleyebiliyoruz 
+ama gitte tarihler vb degisiyor 
+
+iki farkli brnache var ve arada bir merge var o merge gitisn istioyrsak gir rebase master dedigimizde merge kalkiyor masterlari bir yere baska branchleri siraliyor 
+
+
+git ilk repo
+
+
++ new repo 
+repo name veriyoruz
+
+
+ git remote add origin https://github.com/SemihHanAkman/GitHubTest.git
+
+
+$ git push -u origin master
+
+
+
+
+info: please complete authentication in your browser...
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 225 bytes | 225.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/SemihHanAkman/GitHubTest/pull/new/master
+remote:
+To https://github.com/SemihHanAkman/GitHubTest.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+git remote originde oldugunu gosteriyor 
+
+github ile git commit bazen ayni olmuyor git daha geride kaliyor bunu nasil cozebiliriz
+
+githubtaki degisiklikligi nasil gite gostericez
+
+
+git fetch origin master 
+githubtaki commitleride alicak 
+
+
+remote branchlerer gecerken git switch degil git checkout origin/master kullaniriz 
+
+
+git pull = git fetch +git merge 
+
+
+git clone bir github  reposunu senin cin kopyaliyor
+
+fork kendi repo ve hesabi baskasinin reposundan aliyorum ama artik yollari ayirir
+
+baska ir repo clonelandinda yazdiginda oushlayamiyoruz bu yuzden clonelayip forklayip puslayip requesst atmak lazim 
+
+private repo sahibi izin vermesi gerekiyor
+ 
+
+
+
